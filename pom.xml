@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <name>hhoss maven root pom</name>
+    <artifactId>hhoss-pom-root</artifactId>
+    <groupId>com.hhoss</groupId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <description>hhoss pom root</description>
+    <url>https://github.com/qqoss</url>
+	<organization>
+	  <name>hhoss framework</name>
+	  <url>https://www.hhoss.com/home</url>
+	</organization>
+	<licenses>
+	  <license>
+	    <name>GNU General Public License, Version 3</name>
+	    <url>https://www.gnu.org/licenses/gpl-3.0.html</url>
+	    <distribution>repo</distribution>
+	  </license>
+	</licenses>
+	<developers>
+	  <developer><id>Kejun</id><name>Zheng Kejun</name><email>kejun@hhoss.com</email></developer>
+	</developers>
+    <scm>
+        <url>${project.url}/${project.artifactId}</url>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>scm:git:${project.scm.url}</developerConnection>
+    </scm>
+    <issueManagement>
+	  <system>GitHub</system>
+	  <url>${project.scm.url}/issues</url>
+	</issueManagement>
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <name>sonatype repository to central</name>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <name>sonatype snapshot repository</name>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
