@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <name>hhoss pom maven root </name>
     <artifactId>maven-root</artifactId>
     <groupId>com.hhoss</groupId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.8.3</version>
     <packaging>pom</packaging>
-    <description>hhoss pom maven root</description>
-    <url>https://github.com/qqoss</url>
+    <name>hhoss root pom</name>
+    <description>hhoss root pom for maven project</description>
+    <url>https://github.com/qqoss/${project.artifactId}</url>
 	<organization>
 	  <name>hhoss framework</name>
 	  <url>https://www.hhoss.com/home</url>
@@ -20,14 +20,15 @@
 	  </license>
 	</licenses>
 	<developers>
-	  <developer><id>Kejun</id><name>Zheng Kejun</name><email>kejun@hhoss.com</email></developer>
+	  <developer><id>Kedgin</id><name>Zheng Kedgin</name><email>service@hhoss.com</email></developer>
 	</developers>
     <scm>
-        <url>${project.url}/${project.artifactId}</url>
-        <connection>scm:git:${project.scm.url}</connection>
-        <developerConnection>scm:git:${project.scm.url}</developerConnection>
+        <url>${scm.base.url}</url>
+        <connection>scm:git:${scm.base.url}</connection>
+        <developerConnection>scm:git:${scm.base.url}</developerConnection>
     </scm>
     <properties>        
+		<scm.base.url>https://github.com/qqoss/${project.artifactId}</scm.base.url>
 		<maven.test.skip>true</maven.test.skip>
     	<slf4j.version>1.7.36</slf4j.version>
     	<java.compile.source>17</java.compile.source>
@@ -36,7 +37,7 @@
      </properties>
     <issueManagement>
 	  <system>GitHub</system>
-	  <url>${project.scm.url}/issues</url>
+	  <url>${project.url}/issues</url>
 	</issueManagement>
     <distributionManagement>
         <repository>
@@ -181,14 +182,13 @@
 				  <goals>
 					<goal>sign</goal>
 				  </goals>
-				  <!-- 
 				  <configuration> 
-				  <executable>gpg</executable> 
-				  <homedir>${gpg.homedir}</homedir> 
-                  <keyname>${gpg.keyname}</keyname> 
-                  <passphrase>${gpg.passphrase}</passphrase> 
+				    <executable>${gpg.executable}</executable> 
+				    <homedir>${gpg.homedir}</homedir> 
+                    <keyname>${gpg.keyname}</keyname> 
+                    <passphrase>${gpg.passphrase}</passphrase> 
+				    <skip>${gpg.skip}</skip>
                   </configuration> 
-                  -->
 				</execution>
 			  </executions>
 			</plugin>
@@ -205,5 +205,14 @@
 			</plugin>
         </plugins>
       </pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-gpg-plugin</artifactId>
+        </plugin>
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+        </plugin>
+      </plugins>
     </build>
 </project>
