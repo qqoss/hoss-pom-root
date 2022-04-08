@@ -1,6 +1,6 @@
 $cmdFile = $MyInvocation.MyCommand.Definition
 $cmdPath = [System.IO.Path]::GetDirectoryName($cmdFile)
-$logFIle = $cmdPath+"\release" + (Get-Date -Format yyMMddHHmmss) + ".txt"
+$logFile = $cmdPath+"\release" + (Get-Date -Format yyMMddHHmmss) + ".log"
 Set-Location  $cmdPath/..
 <#
 $cmdPath = Split-Path -Parent $cmdFile
@@ -10,6 +10,6 @@ $tims = Get-Date -Format yyMMddHHmmss
 $logFIle = $cmdPath+'\release'+ (Get-Date @hash) +'.txt'
 echo $logFIle
 #>
-$mvnCmd = mvn clean source:jar deploy 
-$mvnCmd | tee $logFIle
+$mvnCmd = mvn -X clean deploy 
+$mvnCmd | tee $logFile
 pause
