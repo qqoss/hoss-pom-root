@@ -2,12 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>maven-root</artifactId>
   <groupId>com.hhoss</groupId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>pom</packaging>
   <name>maven root pom</name>
   <description>maven root pom for hhoss project</description>
   <url>${scm.base.url}</url>
   <properties>
+    <hhoss.groupId>com.hhoss</hhoss.groupId>
     <scm.base.url>https://github.com/qqoss/${project.artifactId}</scm.base.url>
     <distribution.server>https://s01.oss.sonatype.org</distribution.server>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
